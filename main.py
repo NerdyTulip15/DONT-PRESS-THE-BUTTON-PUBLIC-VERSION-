@@ -304,7 +304,6 @@ while run:
                if achieved == False:
                    f = open("achievements", "a")
                    f.write("you exploded")
-               run = False
 
        if secret_ending == True:
            achieved = False
