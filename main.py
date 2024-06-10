@@ -155,6 +155,10 @@ explode = False
 pre_start = False
 set_time = False
 set_time2 = True
+bad_ending = False
+bad_message = my_font.render(' ', True, (0,0,0))
+toxic_gas = pygame.image.load('toxic-gas.png')
+
 # -------- Main Program Loop -----------
 while run:
    if start == True and timer_run == True:
@@ -346,6 +350,8 @@ while run:
 
            else:
                #bad ending
+               bad_message = my_font.render('YOU DIED', True, (255, 0, 0))
+               bad_ending = True
                f = open('achievements' , 'r')
                data = f.readlines()
                for x in data:
@@ -386,6 +392,9 @@ while run:
    screen.blit(display_counter, (900,0))
    if start == False and pre_start == True:
        screen.blit(exposition, (200,200))
+    if bad_ending == True:
+       screen.blit(toxic_gas,(0,0))
+       screen.blit(bad_message,(200,200))
    pygame.display.update()
 
 
